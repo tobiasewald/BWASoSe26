@@ -24,7 +24,7 @@ try:
 except ImportError:
     ChatGoogleGenerativeAI = None
 
-DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mock_erp.db")
+DB_PATH = os.environ.get("DB_PATH", os.path.join(os.path.dirname(os.path.abspath(__file__)), "mock_erp.db"))
 
 # =====================================================================
 # PHASE 1: DATABASE INITIALIZATION
