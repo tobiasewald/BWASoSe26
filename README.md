@@ -14,39 +14,23 @@ This repository contains an agentic AI system built with LangGraph to automate t
 ## Installation and Setup
 
 ### 1. Prerequisites
-Python 3.10 or higher is required.
+Ensure you have **Docker** and **Docker Compose** installed on your system.
 
-### 2. Install Dependencies
-Run the following command to install the required packages:
-```bash
-pip install fastapi uvicorn langgraph langchain-community langchain-openai langchain-google-genai langchain-ollama pydantic pypdf
-```
-
-### 3. Initialize the Database
-Seed the mock ERP SQLite database by executing:
-```bash
-python agent_system.py
-```
-
-### 4. Start the Application Server
-Launch the backend web server:
-```bash
-python app.py
-```
-The application will start on `http://127.0.0.1:8001`.
-
-### 5. Access the Dashboard
-Open a web browser and navigate to:
-```
-http://127.0.0.1:8001
-```
-
-### 6. Alternative Container Setup (Docker Compose)
-If you prefer to run the system inside a container, execute:
+### 2. Launch the Application
+Run the following command in the root directory of the project to build the image and start the containerized application:
 ```bash
 docker compose up --build
 ```
-Once initialized, navigate your browser to `http://127.0.0.1:8001`. The container automatically routes connection pings to `http://host.docker.internal:11434` to communicate with the host machine's local Ollama server.
+The application server will compile, perform initial database seeding if needed, and start up on port `8001`.
+
+### 3. Access the Dashboard
+Open your web browser and navigate to:
+```
+http://localhost:8001
+```
+
+### 4. Local Ollama Integration
+The container is configured to automatically route connection pings to `http://host.docker.internal:11434` to communicate with your host machine's local Ollama server. Ensure Ollama is running on the host machine.
 
 ## Scenario Verification Guide
 
