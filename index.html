@@ -28,6 +28,10 @@
                 </div>
             </div>
             <div class="header-actions">
+                <div class="connection-status" id="connection-status-panel" style="display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.03); border:1px solid var(--panel-border); padding:6px 12px; border-radius:6px; font-size:0.75rem;">
+                    <span class="status-dot" id="status-dot" style="width:8px; height:8px; border-radius:50%; background:#ef4444; display:inline-block; transition: var(--transition);"></span>
+                    <span id="status-text" style="color:var(--text-muted); font-family:monospace;">Ollama (llama3.1): Offline</span>
+                </div>
                 <button id="config-toggle-btn" class="icon-btn" title="LLM Configuration">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="3"/>
@@ -351,10 +355,10 @@
                     <div class="input-group">
                         <label>Execution Mode</label>
                         <select id="config-mode-select">
-                            <option value="simulator">High-Fidelity Simulator (Self-Contained)</option>
                             <option value="ollama">Local Ollama (Local Model)</option>
                             <option value="openai">OpenAI API (Cloud)</option>
                             <option value="gemini">Google Gemini API (Cloud)</option>
+                            <option value="simulator">Rule-based Simulator (Backup)</option>
                         </select>
                     </div>
 

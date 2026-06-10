@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  ap-audit-system:
+    build: .
+    container_name: bwa-ap-audit-agent
+    ports:
+      - "8001:8001"
+    environment:
+      - LLM_MODE=ollama
+      - OLLAMA_MODEL=llama3.1
+      # On Windows/macOS, host.docker.internal points to the host machine running Ollama
+      - OLLAMA_URL=http://host.docker.internal:11434
+    volumes:
+      # Persistent SQLite database across container restarts
+      - erp_data:/app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+volumes:
+  erp_data:

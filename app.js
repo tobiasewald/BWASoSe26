@@ -168,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (res.ok) {
                 alert("Execution settings successfully updated.");
                 configModal.classList.remove("open");
+                checkModelHealth(); // Check connection immediately on save
             } else {
                 alert("Failed to save configurations.");
             }
@@ -721,4 +722,42 @@ document.addEventListener("DOMContentLoaded", () => {
             tableBody.innerHTML = `<tr><td colspan="10" style="color:var(--danger)">Error: ${e.message}</td></tr>`;
         }
     }
+
+    async function checkModelHealth() {
+        const statusDot = document.getElementById("status-dot");
+        const statusText = document.getElementById("status-text");
+        if (!statusDot || !statusText) return;
+        
+        try {
+            const res = await fetch("/api/health");
+            if (res.ok) {
+                const health = await res.json();
+                statusText.textContent = health.details;
+                
+                // Clear inline style and set classes
+                statusDot.style.background = "";
+                statusDot.className = "status-dot";
+                if (health.status === "connected") {
+                    statusDot.classList.add("status-dot-connected");
+                } else if (health.status === "warning") {
+                    statusDot.classList.add("status-dot-warning");
+                } else {
+                    statusDot.classList.add("status-dot-disconnected");
+                }
+            } else {
+                statusText.textContent = "Server connection lost";
+                statusDot.style.background = "";
+                statusDot.className = "status-dot status-dot-disconnected";
+            }
+        } catch (e) {
+            console.error("Health check error:", e);
+            statusText.textContent = "Backend offline";
+            statusDot.style.background = "";
+            statusDot.className = "status-dot status-dot-disconnected";
+        }
+    }
+
+    // Run health check initially and poll every 5s
+    checkModelHealth();
+    setInterval(checkModelHealth, 5000);
 });

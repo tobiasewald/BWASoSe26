@@ -41,6 +41,13 @@ Open a web browser and navigate to:
 http://127.0.0.1:8001
 ```
 
+### 6. Alternative Container Setup (Docker Compose)
+If you prefer to run the system inside a container, execute:
+```bash
+docker compose up --build
+```
+Once initialized, navigate your browser to `http://127.0.0.1:8001`. The container automatically routes connection pings to `http://host.docker.internal:11434` to communicate with the host machine's local Ollama server.
+
 ## Scenario Verification Guide
 
 The web dashboard is configured with four test cases to verify different paths of the LangGraph state machine:
