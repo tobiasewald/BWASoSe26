@@ -1,0 +1,1027 @@
+/* =====================================================================
+   LANGGRAPH STUDIO STYLE THEME
+   ===================================================================== */
+
+:root {
+    --bg-dark: #030303;      /* Deep black typical of developer platforms */
+    --panel-bg: rgba(9, 9, 11, 0.85); /* Zinc-950 flat glass container */
+    --panel-border: rgba(39, 39, 42, 0.6); /* Zinc-800 border line */
+    
+    /* Emerald/Mint Green Theme */
+    --primary: #10b981;      
+    --primary-hover: #059669;
+    --primary-glow: rgba(16, 185, 129, 0.25);
+    
+    /* Official LangChain Orange */
+    --warning: #f97316;      
+    --warning-bg: rgba(249, 115, 22, 0.1);
+    --warning-glow: rgba(249, 115, 22, 0.3);
+    
+    --success: #10b981;      /* Emerald */
+    --success-bg: rgba(16, 185, 129, 0.08);
+    --success-glow: rgba(16, 185, 129, 0.25);
+    
+    --danger: #ef4444;       /* Crimson */
+    --danger-bg: rgba(239, 68, 68, 0.08);
+    --danger-glow: rgba(239, 68, 68, 0.25);
+    
+    --info: #06b6d4;         /* Cyan */
+    --info-bg: rgba(6, 182, 212, 0.08);
+    
+    --text-main: #f4f4f5;    /* Zinc-100 */
+    --text-muted: #a1a1aa;   /* Zinc-400 */
+    --text-dark: #3f3f46;    /* Zinc-700 */
+    
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+}
+
+/* App Layout Grid */
+.app-container {
+    display: grid;
+    grid-template-rows: 64px 1fr 220px;
+    height: 100vh;
+    padding: 0 16px 16px 16px;
+    gap: 12px;
+}
+
+/* =====================================================================
+   HEADER SECTION
+   ===================================================================== */
+.app-header {
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--primary);
+    filter: drop-shadow(0 0 6px var(--primary-glow));
+}
+
+.logo-text h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 40%, #c7d2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-text span {
+    font-size: 0.725rem;
+    color: var(--text-muted);
+    font-family: monospace;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Buttons */
+.primary-btn, .secondary-btn, .success-btn, .danger-btn, .icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.primary-btn {
+    background: var(--primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+.primary-btn:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+.secondary-btn {
+    background: #09090b;
+    border: 1px solid var(--panel-border);
+    color: var(--text-main);
+}
+.secondary-btn:hover {
+    background: #18181b;
+    border-color: #3f3f46;
+}
+
+.success-btn {
+    background: var(--success);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+.success-btn:hover {
+    box-shadow: 0 0 12px var(--success-glow);
+}
+
+.danger-btn {
+    background: var(--danger);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+.danger-btn:hover {
+    box-shadow: 0 0 12px var(--danger-glow);
+}
+
+.icon-btn {
+    background: #09090b;
+    border: 1px solid var(--panel-border);
+    color: var(--text-main);
+    padding: 8px 12px;
+}
+.icon-btn svg {
+    width: 14px;
+    height: 14px;
+}
+.icon-btn:hover {
+    background: #18181b;
+}
+
+/* =====================================================================
+   GLASSMOPHISM COMPONENT
+   ===================================================================== */
+.glass-panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.glass-panel h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+}
+
+.section-desc {
+    font-size: 0.775rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+/* =====================================================================
+   MAIN PANELS
+   ===================================================================== */
+.app-main {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 320px 1fr 360px;
+    gap: 12px;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* --- CONTROL PANEL (LEFT) --- */
+.control-panel {
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.panel-section h2 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.scenario-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.scenario-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #09090b;
+    border: 1px solid var(--panel-border);
+    color: var(--text-main);
+    text-align: left;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.scenario-btn:hover {
+    background: #18181b;
+    border-color: #3f3f46;
+    transform: translateX(1px);
+}
+
+.scenario-btn.active {
+    background: rgba(139, 92, 246, 0.06);
+    border-color: var(--primary);
+    box-shadow: inset 0 0 6px rgba(139, 92, 246, 0.1);
+}
+
+.badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px; /* Flatter developer badge */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+.badge-success { background: var(--success); color: white; }
+.badge-warning { background: var(--warning); color: white; }
+.badge-danger { background: var(--danger); color: white; }
+.badge-info { background: var(--info); color: white; }
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-text strong {
+    font-size: 0.825rem;
+    font-weight: 600;
+}
+
+.btn-text span {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+/* Invoice Editor form */
+.invoice-editor-section {
+    border-top: 1px solid var(--panel-border);
+    padding-top: 16px;
+}
+
+.invoice-editor-section h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.editor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input-group label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.input-group input, .input-group select {
+    background: #09090b;
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    padding: 6px 8px;
+    color: white;
+    font-size: 0.775rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 6px var(--primary-glow);
+}
+
+#submit-invoice-btn {
+    width: 100%;
+    padding: 10px;
+}
+
+
+/* --- CENTER PANEL (GRAPH VISUALIZER) --- */
+.visualizer-panel {
+    overflow: hidden;
+    gap: 16px;
+}
+
+/* LangGraph Studio canvas design: dark grid background */
+.visualizer-container {
+    flex: 1;
+    background-color: #030303;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    position: relative;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.node-graph {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 40px;
+    position: relative;
+}
+
+/* Flat node cards styled like LangGraph Studio nodes */
+.node {
+    width: 110px;
+    height: 74px;
+    background: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 6px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: default;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.node-content {
+    padding: 4px;
+}
+
+.node-tag {
+    font-size: 0.55rem;
+    font-family: monospace;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.node-content h3 {
+    font-size: 0.775rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+}
+
+.node-content p {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+/* Active Node States - LangGraph Purple outline & glow */
+.node.active {
+    border-color: var(--primary);
+    box-shadow: 0 0 12px var(--primary-glow);
+}
+
+.node.active-success {
+    border-color: var(--success);
+    box-shadow: 0 0 12px var(--success-glow);
+}
+
+.node.active-warning {
+    border-color: var(--warning);
+    box-shadow: 0 0 12px var(--warning-glow);
+}
+
+.node.active-danger {
+    border-color: var(--danger);
+    box-shadow: 0 0 12px var(--danger-glow);
+}
+
+/* Node pulse ring animations */
+.node.active .node-pulse,
+.node.active-success .node-pulse,
+.node.active-warning .node-pulse,
+.node.active-danger .node-pulse {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 8px;
+    border: 1px solid inherit;
+    animation: node-pulse-anim 1.5s infinite ease-in-out;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.node.active .node-pulse { border-color: var(--primary); }
+.node.active-success .node-pulse { border-color: var(--success); }
+.node.active-warning .node-pulse { border-color: var(--warning); }
+.node.active-danger .node-pulse { border-color: var(--danger); }
+
+@keyframes node-pulse-anim {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.05); opacity: 0.15; }
+    100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* Connectors - Sleeker edge lines */
+.edge-connector {
+    height: 2px;
+    background: #27272a;
+    transition: var(--transition);
+    position: relative;
+}
+
+#edge-1 { width: 36px; }
+#edge-2 { width: 36px; }
+
+.edge-connector.active {
+    background: var(--primary);
+    box-shadow: 0 0 6px var(--primary-glow);
+}
+
+.edge-connector.active-success {
+    background: var(--success);
+    box-shadow: 0 0 6px var(--success-glow);
+}
+
+.edge-connector.active-warning {
+    background: var(--warning);
+    box-shadow: 0 0 6px var(--warning-glow);
+}
+
+/* Connector Arrow */
+.edge-connector::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: -3.5px;
+    border-width: 4px 0 4px 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #27272a;
+    transition: var(--transition);
+}
+
+.edge-connector.active::after { border-left-color: var(--primary); }
+.edge-connector.active-success::after { border-left-color: var(--success); }
+.edge-connector.active-warning::after { border-left-color: var(--warning); }
+
+/* Branching Structure layout */
+.branch-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 16px;
+    position: relative;
+}
+
+.branch-branch {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.edge-diagonal-up {
+    width: 40px;
+    transform: rotate(-25deg);
+    transform-origin: left center;
+    margin-right: -10px;
+}
+
+.edge-straight {
+    width: 30px;
+    margin-right: 0px;
+}
+
+.edge-diagonal-down {
+    width: 40px;
+    transform: rotate(25deg);
+    transform-origin: left center;
+    margin-right: -10px;
+}
+
+.HITL-tag {
+    background: var(--warning-bg);
+    color: var(--warning);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 3px;
+    padding: 0 3px;
+    font-family: monospace;
+}
+
+/* State display card */
+.state-card {
+    background: #09090b;
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.state-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.state-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.state-lbl {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+.state-val {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.val-pending { color: var(--text-muted); }
+.val-matched { color: var(--success); }
+.val-mismatch { color: var(--warning); }
+.val-blocked { color: var(--danger); }
+
+
+/* --- LOGS PANEL (RIGHT) --- */
+.logs-panel {
+    gap: 12px;
+}
+
+.tabs-header {
+    display: flex;
+    border-bottom: 1px solid var(--panel-border);
+    gap: 8px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.tab-btn:hover {
+    color: white;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.tab-content.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Timeline logs */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.timeline-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    text-align: center;
+    padding: 60px 20px;
+    gap: 12px;
+}
+
+.timeline-empty p {
+    font-size: 0.775rem;
+}
+
+.log-item {
+    display: flex;
+    gap: 10px;
+    font-size: 0.775rem;
+    line-height: 1.4;
+    animation: fade-in-up 0.25s ease-out;
+}
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.log-bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-dark);
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.log-bullet.active-bullet {
+    background: var(--primary);
+    box-shadow: 0 0 6px var(--primary);
+}
+
+.log-bullet.success-bullet {
+    background: var(--success);
+    box-shadow: 0 0 6px var(--success);
+}
+
+.log-bullet.warning-bullet {
+    background: var(--warning);
+    box-shadow: 0 0 6px var(--warning);
+}
+
+.log-bullet.danger-bullet {
+    background: var(--danger);
+    box-shadow: 0 0 6px var(--danger);
+}
+
+.log-text {
+    color: var(--text-main);
+}
+
+/* Email Viewer */
+.email-viewer {
+    background: #09090b;
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    padding: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.775rem;
+}
+
+.email-header {
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.email-body {
+    flex: 1;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================================================
+   ERP DATABASE VIEWER (BOTTOM)
+   ===================================================================== */
+.erp-db-panel {
+    grid-row: 3;
+    overflow: hidden;
+    gap: 10px;
+}
+
+.db-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 8px;
+}
+
+.db-header h2 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: monospace;
+}
+
+.db-tabs {
+    display: flex;
+    background: #09090b;
+    padding: 2px;
+    border-radius: 6px;
+    border: 1px solid var(--panel-border);
+    gap: 2px;
+}
+
+.db-tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.725rem;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.db-tab-btn:hover {
+    color: white;
+}
+
+.db-tab-btn.active {
+    background: #27272a;
+    color: white;
+}
+
+.table-container {
+    flex: 1;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.725rem;
+    text-align: left;
+}
+
+th, td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(39, 39, 42, 0.4);
+}
+
+th {
+    color: var(--text-muted);
+    font-weight: 600;
+    background: #09090b;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+td {
+    color: var(--text-main);
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.01);
+}
+
+
+/* =====================================================================
+   MODAL OVERLAYS (HITL & Config Settings)
+   ===================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* HITL Card modal - LangChain Orange details */
+.modal-card {
+    background: #09090b;
+    border: 1px solid var(--warning);
+    box-shadow: 0 0 20px var(--warning-glow);
+    border-radius: 8px;
+    width: 480px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform: scale(0.95);
+    transition: transform 0.25s ease;
+}
+
+.modal-overlay.open .modal-card {
+    transform: scale(1);
+}
+
+.warning-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--warning);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.modal-body {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-main);
+}
+
+.mismatch-summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.mismatch-box {
+    background: #18181b;
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    padding: 8px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mismatch-box strong {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+.mismatch-box span {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.mismatch-box.highlight {
+    background: rgba(239, 68, 68, 0.04);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.mismatch-box.highlight span {
+    color: var(--danger);
+}
+
+.mismatch-details {
+    background: #030303;
+    border: 1px solid var(--panel-border);
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 10px;
+}
+
+/* LLM Configuration Settings slideout card */
+.slideout-card {
+    position: fixed;
+    right: -380px;
+    top: 0;
+    bottom: 0;
+    width: 360px;
+    background: #09090b;
+    border-left: 1px solid var(--panel-border);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: right 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 101;
+}
+
+.modal-overlay.open .slideout-card {
+    right: 0;
+}
+
+.slideout-card .modal-header {
+    justify-content: space-between;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: white;
+}
+
+.config-conditional {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+    border-top: 1px solid var(--panel-border);
+    padding-top: 12px;
+}
+
+.config-conditional.active {
+    display: flex;
+}
+
+.input-tip {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}

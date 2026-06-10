@@ -1,0 +1,28 @@
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local Database
+mock_erp.db
+
+# Environment Secrets
+.env
+.env.*
+
+# IDE Settings
+.vscode/
+.idea/
+
+# Temporary Extraction & Search Scripts
+data/extracted_text/
+data/search_results.txt
+data/find_prototype.py
+data/read_kickoff.py
+data/read_workflow.py
+data/read_sap.py
+data/clean_lecture8.py
+data/check_env.py
+data/search_text.py
+data/extract_text.py

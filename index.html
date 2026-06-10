@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AP Audit - LangGraph Three-Way Match</title>
+    <!-- Modern Typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="logo-area">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"/>
+                    <circle cx="6" cy="12" r="3"/>
+                    <circle cx="18" cy="19" r="3"/>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                </svg>
+                <div class="logo-text">
+                    <h1>EnterpriseAP</h1>
+                    <span>Agentic AI Three-Way Match Audit</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="config-toggle-btn" class="icon-btn" title="LLM Configuration">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                    <span>Settings</span>
+                </button>
+                <button id="reset-db-btn" class="secondary-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                    </svg>
+                    Reset ERP Data
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="app-main">
+            <!-- LEFT PANEL: SCENARIOS & CONFIG -->
+            <section class="control-panel glass-panel">
+                <div class="panel-section">
+                    <h2>Select Test Invoice Scenario</h2>
+                    <p class="section-desc">Submit simulated supplier invoices to trigger distinct branches in the LangGraph workflow.</p>
+                    
+                    <div class="scenario-buttons">
+                        <button class="scenario-btn active" data-scenario="A">
+                            <span class="badge badge-success">A</span>
+                            <div class="btn-text">
+                                <strong>Perfect Match (PO-101)</strong>
+                                <span>Invoice fits PO & Goods Receipt. Auto-posts.</span>
+                            </div>
+                        </button>
+                        
+                        <button class="scenario-btn" data-scenario="B">
+                            <span class="badge badge-warning">B</span>
+                            <div class="btn-text">
+                                <strong>Price Mismatch < $100 (PO-103)</strong>
+                                <span>+$40 variance. Auto-drafts supplier email.</span>
+                            </div>
+                        </button>
+                        
+                        <button class="scenario-btn" data-scenario="C">
+                            <span class="badge badge-danger">C</span>
+                            <div class="btn-text">
+                                <strong>Qty Mismatch >= $100 (PO-102)</strong>
+                                <span>+$1000 variance. Pauses for manager approval.</span>
+                            </div>
+                        </button>
+                        
+                        <button class="scenario-btn" data-scenario="D">
+                            <span class="badge badge-info">D</span>
+                            <div class="btn-text">
+                                <strong>Missing Goods Receipt (PO-104)</strong>
+                                <span>No delivery on file. Automatically blocked.</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel-section invoice-editor-section">
+                    <h3>Submitting Invoice Data</h3>
+                    <div class="editor-grid">
+                        <div class="input-group">
+                            <label>Invoice ID</label>
+                            <input type="text" id="inv-id-input" value="INV-A01">
+                        </div>
+                        <div class="input-group">
+                            <label>Reference PO ID</label>
+                            <input type="text" id="po-id-input" value="PO-101">
+                        </div>
+                        <div class="input-group">
+                            <label>Supplier Name</label>
+                            <input type="text" id="supplier-input" value="AeroParts Inc">
+                        </div>
+                        <div class="input-group">
+                            <label>Item ID</label>
+                            <input type="text" id="item-input" value="PART-001">
+                        </div>
+                        <div class="input-group">
+                            <label>Invoice Quantity</label>
+                            <input type="number" id="qty-input" value="10">
+                        </div>
+                        <div class="input-group">
+                            <label>Unit Price ($)</label>
+                            <input type="number" id="price-input" value="500.00">
+                        </div>
+                    </div>
+                    <button id="submit-invoice-btn" class="primary-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                        Audit with LangGraph
+                    </button>
+                </div>
+            </section>
+
+            <!-- CENTER PANEL: WORKFLOW GRAPH VISUALIZER -->
+            <section class="visualizer-panel glass-panel">
+                <h2>LangGraph Workflow Execution</h2>
+                <div class="visualizer-container">
+                    <div class="node-graph">
+                        <div class="node" id="node-intake">
+                            <div class="node-pulse"></div>
+                            <div class="node-content">
+                                <span class="node-tag">Agent</span>
+                                <h3>Intake</h3>
+                                <p>Parse Invoice</p>
+                            </div>
+                        </div>
+
+                        <div class="edge-connector" id="edge-1"></div>
+
+                        <div class="node" id="node-erp">
+                            <div class="node-pulse"></div>
+                            <div class="node-content">
+                                <span class="node-tag">Agent</span>
+                                <h3>ERP Query</h3>
+                                <p>Fetch PO & GR</p>
+                            </div>
+                        </div>
+
+                        <div class="edge-connector" id="edge-2"></div>
+
+                        <div class="node" id="node-reconcile">
+                            <div class="node-pulse"></div>
+                            <div class="node-content">
+                                <span class="node-tag">Agent</span>
+                                <h3>Reconcile</h3>
+                                <p>3-Way Match</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Dynamic branch container -->
+                        <div class="branch-container">
+                            <div class="branch-branch branch-top">
+                                <div class="edge-connector edge-diagonal-up" id="edge-diag-up"></div>
+                                <div class="node" id="node-posting">
+                                    <div class="node-pulse"></div>
+                                    <div class="node-content">
+                                        <span class="node-tag">System</span>
+                                        <h3>Post ERP</h3>
+                                        <p>Ledger Update</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="branch-branch branch-middle">
+                                <div class="edge-connector edge-straight" id="edge-straight"></div>
+                                <div class="node" id="node-liaison">
+                                    <div class="node-pulse"></div>
+                                    <div class="node-content">
+                                        <span class="node-tag">Agent</span>
+                                        <h3>Liaison</h3>
+                                        <p>Draft Email</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="branch-branch branch-bottom">
+                                <div class="edge-connector edge-diagonal-down" id="edge-diag-down"></div>
+                                <div class="node" id="node-manager">
+                                    <div class="node-pulse"></div>
+                                    <div class="node-content">
+                                        <span class="node-tag HITL-tag">HITL</span>
+                                        <h3>Manager</h3>
+                                        <p>Manual Portal</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATE DISPLAY CARD -->
+                <div class="state-card">
+                    <div class="state-row">
+                        <div class="state-item">
+                            <span class="state-lbl">Reconciliation Status</span>
+                            <span id="state-reconciliation-status" class="state-val val-pending">Awaiting Run</span>
+                        </div>
+                        <div class="state-item">
+                            <span class="state-lbl">Discrepancy</span>
+                            <span id="state-discrepancy" class="state-val">$0.00</span>
+                        </div>
+                        <div class="state-item">
+                            <span class="state-lbl">Posting Status</span>
+                            <span id="state-post-status" class="state-val val-pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT PANEL: LOGS & DETAILED OUTCOMES -->
+            <section class="logs-panel glass-panel">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="logs">Reasoning Log</button>
+                    <button class="tab-btn" data-tab="liaison">Supplier Email</button>
+                </div>
+                
+                <div class="tab-content active" id="tab-logs">
+                    <div class="timeline" id="log-timeline">
+                        <div class="timeline-empty">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="16" x2="12" y2="12"/>
+                                <line x1="12" y1="8" x2="12.01" y2="8"/>
+                            </svg>
+                            <p>No audit active. Select a scenario and click "Audit with LangGraph" to begin.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab-liaison">
+                    <div class="email-viewer">
+                        <div class="email-header">
+                            <div><strong>To:</strong> <span id="email-to">supplier@company.com</span></div>
+                            <div><strong>Subject:</strong> <span id="email-subject">-</span></div>
+                        </div>
+                        <div class="email-body" id="email-body-content">
+                            Select Scenario B to automatically generate a supplier notification email draft.
+                        </div>
+                        <button id="send-email-btn" class="primary-btn hidden">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                            Send Email
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- BOTTOM PANEL: ERP DATABASE VIEWER -->
+        <section class="erp-db-panel glass-panel">
+            <div class="db-header">
+                <h2>Simulated ERP System Database (SQLite Viewer)</h2>
+                <div class="db-tabs">
+                    <button class="db-tab-btn active" data-db-table="pos">Purchase Orders (MM)</button>
+                    <button class="db-tab-btn" data-db-table="grs">Goods Receipts (MM)</button>
+                    <button class="db-tab-btn" data-db-table="invs">Posted Invoices (FI)</button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="db-table">
+                    <thead>
+                        <!-- Table header updated dynamically -->
+                    </thead>
+                    <tbody id="db-table-body">
+                        <!-- Table body updated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- HUMAN-IN-THE-LOOP PORTAL DIALOG (MODAL) -->
+        <div class="modal-overlay" id="hitl-modal">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="warning-icon">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <h2>Human-in-the-Loop: Manager Approval Required</h2>
+                </div>
+                <div class="modal-body">
+                    <p>LangGraph has interrupted processing at node <code>manager_approval_node</code> because the discrepancy exceeds the compliance threshold ($100.00).</p>
+                    
+                    <div class="mismatch-summary">
+                        <div class="mismatch-box">
+                            <strong>Invoice Amount</strong>
+                            <span id="modal-invoice-val">$0.00</span>
+                        </div>
+                        <div class="mismatch-box">
+                            <strong>PO Reference Amount</strong>
+                            <span id="modal-po-val">$0.00</span>
+                        </div>
+                        <div class="mismatch-box highlight">
+                            <strong>Discrepancy Variance</strong>
+                            <span id="modal-variance-val">$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="mismatch-details">
+                        <p><strong>Invoice ID:</strong> <span id="modal-inv-id">INV-XX</span></p>
+                        <p><strong>Supplier:</strong> <span id="modal-supplier">SteelCorp</span></p>
+                        <p><strong>Quantity Discrepancy:</strong> <span id="modal-qty">Invoice: 100 units vs. PO: 50 units</span></p>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="btn-hitl-approve" class="success-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Override & Approve Posting
+                    </button>
+                    <button id="btn-hitl-reject" class="danger-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                        Block & Draft Dispute Email
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LLM CONFIGURATION SLIDEOUT -->
+        <div class="modal-overlay" id="config-modal">
+            <div class="slideout-card">
+                <div class="modal-header">
+                    <h2>LLM Configuration Settings</h2>
+                    <button id="config-close-btn" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="section-desc">Select which language model routing configuration LangGraph will execute during audits.</p>
+                    
+                    <div class="input-group">
+                        <label>Execution Mode</label>
+                        <select id="config-mode-select">
+                            <option value="simulator">High-Fidelity Simulator (Self-Contained)</option>
+                            <option value="ollama">Local Ollama (Local Model)</option>
+                            <option value="openai">OpenAI API (Cloud)</option>
+                            <option value="gemini">Google Gemini API (Cloud)</option>
+                        </select>
+                    </div>
+
+                    <div class="config-conditional" id="config-ollama-fields">
+                        <div class="input-group">
+                            <label>Ollama Base URL</label>
+                            <input type="text" id="config-ollama-url" value="http://localhost:11434">
+                        </div>
+                        <div class="input-group">
+                            <label>Ollama Model Name</label>
+                            <input type="text" id="config-ollama-model" value="llama3">
+                            <span class="input-tip">Ensure this model is pulled locally (e.g. <code>ollama pull llama3</code>).</span>
+                        </div>
+                    </div>
+
+                    <div class="config-conditional" id="config-openai-fields">
+                        <div class="input-group">
+                            <label>OpenAI API Key</label>
+                            <input type="password" id="config-openai-key" placeholder="sk-...">
+                        </div>
+                    </div>
+
+                    <div class="config-conditional" id="config-gemini-fields">
+                        <div class="input-group">
+                            <label>Gemini API Key</label>
+                            <input type="password" id="config-gemini-key" placeholder="AIzaSy...">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="config-save-btn" class="primary-btn">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

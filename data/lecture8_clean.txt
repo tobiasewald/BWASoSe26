@@ -1,0 +1,593 @@
+--- PAGE 1 ---
+SoSe 2026
+Prof. Dr. Robin Gubela
+Business Applications (Betriebswirtschaftliche Anwendungen)
+Lecture 8:  
+AI agents in business workflows
+
+
+--- PAGE 2 ---
+3
+7 AI agent ecosystem + economicsCourse Kickoff1
+9 Agentic ERP in S/4 HANASAP ERP3
+10 OpenClaw & Test preparationPrinciples of ERP systems4
+11 E-TestModern ERP concepts5
+2 Introduction to ERP systems 8 AI agents in business workflows
+Course content
+Fundamentals of AI agents6
+Prof. Dr. Robin Gubela | Business Applications
+Instead: ERP system presentations
+
+--- PAGE 3 ---
+Learning 
+objectives
+4
+… distinguish AI agent workflows from RPA
+At the end of the lecture, students are able to …
+… compare four levels of human-AI collaboration and 
+match the right framework to specific business scenarios
+… identify uniquely human domains that 
+resist automation
+… outline workplace readiness steps
+
+--- PAGE 4 ---
+Agenda
+5
+1 Reimagining business workflows 
+with AI agents
+2 Human-AI collaboration
+3 Human skills, workplace readiness 
+and case studies
+
+--- PAGE 5 ---
+From RPA to AI agents
+6 Prof. Dr. Robin Gubela | Business Applications
+The transformation from rule-based RPA 
+to GenAI agents depicts a fundamental 
+shift in business automation. This 
+evolution has expanded the scope from 
+simple, repetitive tasks to sophisticated, 
+context-aware operations that can handle 
+ambiguity and learn from experience.
+“RPA is like having a very efficient but 
+inflexible worker who can only follow 
+exact instructions.” 
+(anonymous industry expert, see Huang 2025, p. 135)
+Skills of AI agents over RPA
+Natural language understanding
+Unlike RPA, which follows predetermined rules 
+for repetitive tasks, AI agents can interpret and 
+act on instructions in natural language
+Contextual decision-making
+Unlike RPA, which fails when encountering 
+unexpected scenarios, AI agents analyze context 
+and adapt to new situations
+Continuous learning
+Unlike RPA, which doesn’t improve itself, AI 
+agents learn from interactions and feedback and 
+get better over time without reprogramming.
+Sources: Huang (2025)
+1Reimagining business workflows with AI agents
+
+--- PAGE 6 ---
+7
+Activity: Why integrating AI agents into business workflows? 
+• Own brainstorming with researching (5 minutes)
+• Exchanging ideas with seat neighbor (5 minutes)
+• Plenum discussion (5 minutes)
+Prof. Dr. Robin Gubela | Business Applications
+1Reimagining business workflows with AI agents
+
+--- PAGE 7 ---
+AI agents reimagine business workflows across eight dimensions
+8 Prof. Dr. Robin Gubela | Business Applications
+1 From Linear to 
+Dynamic Flows
+AI agents enable real-time 
+adaptive workflows – 
+replacing rigid, predefined 
+sequences
+2 Predictive, not 
+Reactive Processes
+AI agents use ML models to 
+anticipate disruptions in 
+processes and trigger 
+preemptive actions
+3 Personalization 
+at Scale
+Real-time decision-making 
+algorithms deliver highly 
+individualized user 
+experiences
+4 Continuous 
+Learning
+Self-supervised learning 
+with new data and user 
+feedback loops refine 
+operations autonomously
+5 Breaking 
+Department Silos
+AI agents create unified data 
+architectures to integrate 
+fragmented, cross-
+department processes
+6 Autonomous 
+Decision-Making
+Real-time analytics and 
+rule-based governance 
+models facilitate 
+autonomous decisions
+7 Ecosystem 
+Integration
+Distributed ledger techs, 
+APIs and IoT networks 
+connect ecosystem stake-
+holders (users, suppliers, ...)
+8 Key Deployment 
+Factors
+Business value, transaction 
+volume and timing (sync vs. 
+async) guide AI agent 
+deployment
+Sources: Huang (2025)
+1Reimagining business workflows with AI agents
+
+--- PAGE 8 ---
+AI agent workflow categorization matrix
+9 Prof. Dr. Robin Gubela | Business Applications
+Low Moderate High
+Low Moderate High
+Monthly compliance 
+reporting (async) On-demand support (sync) Archival data retrieval 
+(sync)
+High-stakes negotiations 
+(sync)
+Moderate-scale invoice 
+processing (async) FAQ chatbots (sync)
+Real-time trading 
+algorithms (sync) Crisis management (sync) Dynamic pricing in 
+e-commerce (sync)
+Transaction VolumeBusiness Value
+Sources: Huang (2025)
+1Reimagining business workflows with AI agents
+
+--- PAGE 9 ---
+AI agents enable full automation across six key areas
+10 Prof. Dr. Robin Gubela | Business Applications
+AI agents collect data from diverse data sources (e.g., 
+databases, files and APIs) and execute data cleaning, 
+feature extraction, etc.
+Data Processing
+Neural machine translation (NMT) engines translate 
+languages while preserving the original meaning, 
+context and cultural nuances
+Language Translation
+Computer vision and probabilistic reasoning detect 
+defects and analyze root causes across data sources 
+(e.g., engineering manuals, historical defect logs)
+Quality Control
+AI agents understand intent, sentiment and even 
+unspoken needs driving customer inquiries leading to 
+new service models
+Customer Service
+AI agents accurately predict equipment failures before 
+they occur and continuously improve their own 
+performance
+Predictive Maintenance
+Self-learning, self-adapting systems navigate global 
+supply chain complexities (e.g., optimize flow of 
+goods/info across supply chain)
+Supply Chain Optimization
+Sources: Huang (2025)
+1Reimagining business workflows with AI agents
+
+--- PAGE 10 ---
+Full automation has five key implications for the workforce
+11 Prof. Dr. Robin Gubela | Business Applications
+1 Skill Shift
+Increasing demand for AI development, maintenance and human-AI collaboration skills
+2 Job Displacement
+Routine cognitive roles are being eliminated, new roles are being created in AI-related fields
+3 Productivity Boost
+Workers freed from routine tasks to focus on strategic, creative and interpersonal aspects of work
+4 Continuous Learning
+Rapid AI development demands a culture of continuous learning and adaptation in the workforce
+5 Ethics Specialists
+Growing need for ensuring AI systems are fair, transparent and aligned with human values
+Sources: Huang (2025)
+1Reimagining business workflows with AI agents
+
+--- PAGE 11 ---
+Agenda
+12
+1 Reimagining business workflows 
+with AI agents
+2 Human-AI collaboration
+3 Human skills, workplace readiness 
+and case studies
+
+--- PAGE 12 ---
+Four frameworks define how humans and AI agents collaborate
+13 Prof. Dr. Robin Gubela | Business Applications
+Agent as Assistant  |  Low Autonomy
+Responsive helper performing tasks under direct 
+human guidance. Handles drafting, scheduling, 
+organizing. Humans maintain full control over 
+decisions and outcomes.
+Agent as Advisor  |  Moderate Autonomy
+Sophisticated consultant providing analysis, 
+recommendations and evidence-based insights. 
+Humans make final decisions using AI-powered 
+intelligence.
+Agent as Autonomous Worker  |  High Autonomy
+Operates with significant autonomy within defined 
+parameters. Initiates actions, makes decisions and 
+completes complex tasks with minimal human 
+intervention.
+Agent as Autonomous Org.  |  Full Autonomy
+Self-organizing, self-managing AI systems using 
+multiple specialized AI agents to operate business 
+functions or even complete organizations with 
+minimal human intervention.
+Sources: Huang (2025)
+2Human-AI collaboration
+
+--- PAGE 13 ---
+Human-AI collaboration evolves across four levels of autonomy
+14 Prof. Dr. Robin Gubela | Business Applications
+Increasing AI autonomy →
+← Increasing human oversight
+Assistant
+Drafting, scheduling, 
+organizing
+Human Control: 
+High
+AI Autonomy: 
+Low
+e.g., e-mail drafting
+Advisor
+Analysis, insights, 
+recommendations
+Human Control: 
+Medium-High
+AI Autonomy: 
+Medium
+e.g., market analysis
+Autonom. Worker
+Routine decisions, 
+customer service
+Human Control: 
+Low
+AI Autonomy: 
+High
+e.g., customer inquiries
+Autonomous Org.
+Self-organizing, multi-
+agent systems
+Human Control: 
+Minimal
+AI Autonomy: 
+Very High
+e.g., algorithmic trading
+Sources: Huang (2025)
+2Human-AI collaboration
+
+--- PAGE 14 ---
+Assistant agent drafts e-mail
+15 Prof. Dr. Robin Gubela | Business Applications
+Low autonomy  |  Human controls every step
+AI saves time on drafting – human retains full editorial control
+User prompts
+User provides context (e.g., recipient, topic, tone)
+AI drafts e-mail
+Agent generates draft with subject line, greeting, body, etc.
+User reviews
+User reviews, edits wording and adds personal touches
+User sends
+Final approval and sending remains under full human control
+2Human-AI collaboration
+
+--- PAGE 15 ---
+Advisor agent analyzes market
+16 Prof. Dr. Robin Gubela | Business Applications
+Medium autonomy  |  AI analyzes, human decides
+AI researches – human retains strategic decision authority
+AI synthesizes insights
+Agent produces structured analysis with charts, SWOT and 
+strategic recommendations
+User decides
+User evaluates AI recommendations and makes decisions
+User defines scope
+User specifies industry, competitors, metrics, etc. to analyze
+AI gathers data
+Agent autonomously collects market reports, financial data, 
+news and trend signals
+2Human-AI collaboration
+
+--- PAGE 16 ---
+Autonom. worker handles inquiries
+17 Prof. Dr. Robin Gubela | Business Applications
+High autonomy  |  AI acts, human supervises
+AI handles most inquiries E2E – human handles exceptions
+Escalation if needed
+Complex or sensitive cases are flagged and routed to a human 
+with full context summary
+AI logs and learns
+Agent documents the interaction and feeds insights back to 
+improve future resolution quality
+AI resolves on its own
+Agent accesses knowledge base, order data and company 
+policies to solve the issue in real-time
+Customer reaches out
+Inquiry arrives via chat, e-mail or phone – AI agent receives and 
+classifies it automatically
+2Human-AI collaboration
+
+--- PAGE 17 ---
+Autonomous org. conducts trading
+18 Prof. Dr. Robin Gubela | Business Applications
+Very high autonomy  |  AI operates, human governs
+Fully autonomous AI org. – human only sets system boundaries
+AI monitors market continuously
+AI agents scan markets, news feeds, economic indicators 24/7
+AI coordinates agents
+Specialized agents for risk, compliance, portfolio and execution 
+collaborate as a virtual team
+AI decides autonomously
+AI evaluates risks, identifies opportunities and executes trades
+Human sets guardrails only
+Humans define risk limits, compliance rules and strategy 
+parameters – but never intervene in real-time
+2Human-AI collaboration
+
+--- PAGE 18 ---
+19 Prof. Dr. Robin Gubela | Business Applications
+Sources: SAP on YouTube
+Practice Insight: SAP’s vision of the autonomous enterprise
+SAP Sapphire conference (Orlando, May 2026)
+https://k2university.com/news/sap-sapphire-2026-the-autonomous-enterprise-takes-shape/
+Full Keynote (1,5h) Keynote Excerpt (10min)
+2Human-AI collaboration
+
+--- PAGE 19 ---
+Agenda
+20
+1 Reimagining business workflows 
+with AI agents
+2 Human-AI collaboration
+3 Human skills, workplace readiness 
+and case studies
+
+--- PAGE 20 ---
+21
+Activity: In which domains can’t AI agents replace humans?
+• Own brainstorming without researching (5 minutes)
+• Exchanging ideas with seat neighbor (5 minutes)
+• Plenum discussion (5 minutes)
+Prof. Dr. Robin Gubela | Business Applications
+3Human skills, workplace readiness and case studies
+
+--- PAGE 21 ---
+Seven domains remain where AI agents cannot replace humans
+22 Prof. Dr. Robin Gubela | Business Applications
+Complex Negotiations
+Reading subtle emotional 
+cues, building rapport, 
+adjusting strategies
+Strategic Leadership
+Intuiting market trends, 
+inspiring teams, making 
+bold decisions
+Creative Innovation
+Drawing unexpected 
+connections, using cultural 
+insights for original ideas
+Ethical Judgment
+Moral reasoning, fairness 
+considerations, navigating 
+cultural sensitivities
+Problem-Solving
+Navigating ambiguous, 
+unprecedented situations 
+with creative speculation
+Empathetic Relations
+Deep emotional intelligence 
+for conflict resolution and 
+customer communication
+Crisis Adaptation
+Rapidly pivoting without 
+historical precedent (e.g., 
+COVID-19 response)
+Sources: Huang (2025)
+3Human skills, workplace readiness and case studies
+
+--- PAGE 22 ---
+Seven steps to prepare for the AI-integrated workplace
+23 Prof. Dr. Robin Gubela | Business Applications
+Assess
+Identify repetitive, data-
+driven processes with 
+automation potential
+Build infra.
+Build scalable data 
+infrastructure with 
+governance and security
+Upskill
+Develop technical, 
+analytical and problem-
+solving skills
+Redesign
+Define clear AI and 
+human roles with 
+escalation paths
+Change
+Manage change with 
+clear communication 
+and strong leadership
+Govern
+Enable transparency, 
+fairness, accountability 
+and bias mitigation
+Evolve
+Reassess workflows, 
+update systems and 
+invest in innovations
+Sources: Huang (2025)
+3Human skills, workplace readiness and case studies
+
+--- PAGE 23 ---
+Practice Insight: Marc Benioff on AI replacing workforce
+24 Prof. Dr. Robin Gubela | Business Applications
+https://www.youtube.com/shorts/
+YSSZHoyUynU
+“Today’s CEOs will be the last to 
+manage all human workforces.”
+Marc Benioff, CEO Salesforce 
+(June 2025)
+Sources: Bloomberg on YouTube
+3Human skills, workplace readiness and case studies
+
+--- PAGE 24 ---
+Case studies show AI agent impact across industries (1/2)
+25 Prof. Dr. Robin Gubela | Business Applications
+Olive
+Healthcare
+What it does
+AI agents automate billing, claims 
+and admin tasks across 675+ 
+hospitals in 42 US states
+Impact
+$100M annual savings, affecting 1 in 
+5 Americans during COVID-19 peak
+Key lesson
+Company failed due to rapid 
+expansion and poor business 
+strategy – not the AI itself
+11xAI
+Sales
+What it does
+AI sales development representative 
+“Alice” researches accounts, writes 
+e-mails and books meetings
+Impact
+$2M annual recurring revenue (ARR) 
+one year after its founding
+Key lesson
+AI scales repetitive outreach, but 
+human oversight remains critical for 
+nuanced enterprise deals
+Ema
+Enterprise
+What it does
+“Universal AI employee” handles 
+sales, HR, customer service and 
+admin across business functions
+Impact
+$25M raised from investors. Clients 
+include TrueLayer and Moneyview.
+Key lesson
+One generalist AI agent can replace 
+multiple specialized tools, cutting 
+costs for small firms like start-ups
+3Human skills, workplace readiness and case studies
+
+--- PAGE 25 ---
+Case studies show AI agent impact across industries (2/2)
+26 Prof. Dr. Robin Gubela | Business Applications
+Norm AI
+Compliance
+What it does
+AI agents automate KYC/KYB checks, 
+due diligence and compliance 
+flagging
+Impact
+Saves weeks of manual review in 
+financial services.
+Key lesson
+In highly regulated industries, AI 
+augments human decisions rather 
+than replacing them entirely
+Composabl
+Industrial
+What it does
+AI agents control and adjust 
+industrial equipment in real time – 
+no human intervention needed
+Impact
+Continuous process optimization for 
+efficiency and output
+Key lesson
+AI agents move beyond pure office 
+work into physical operations like 
+manufacturing
+Tech Leaders
+Platforms
+What they do
+Microsoft (AutoGen), Google (Vertex 
+AI), Salesforce (Agentforce) and AWS 
+(Bedrock) launched agent platforms
+Impact
+Enterprise-grade agent building with 
+no-code tools, RAG, etc.
+Key lesson
+AI agents become part of platform 
+infrastructure – not just standalone 
+products
+3Human skills, workplace readiness and case studies
+
+--- PAGE 26 ---
+Takeaways
+27 Prof. Dr. Robin Gubela | Business Applications
+Dynamic workflows replace rigid processes
+AI agents enable real-time adaptive workflows with continuous learning and predictive capabilities across departments
+Full automation transforms key areas
+… like data processing, translation, quality control, customer service, predictive maintenance and SC optimization
+Human-AI collaboration spans four maturity levels
+From AI agent as assistant to autonomous organizations – matching the right framework to the task is critical
+Uniquely human skills remain irreplaceable
+Complex negotiations, strategic leadership and creative innovation – among others – resist automation
+Workplace readiness requires a structured approach
+… including building data infrastructure, upskilling workforce and redesigning workflows
+
+
+--- PAGE 27 ---
+28
+Leisure time
+What content from this lecture can you 
+recall so far?
+Reflect together with the person sitting 
+next to you
+5 minutes
+Prof. Dr. Robin Gubela | Business Applications
+
+--- PAGE 28 ---
+29
+References
+Book by Ken Huang (2025) with the title
+“Agentic AI: Theories and Practices”
+This lecture focuses particularly on:
+• Chapter 5: AI Agents and Business Workflow
+Link to HTW library: https://sisis.rz.htw-
+berlin.de/search?bvnr=BV050372763 
+– Please re-read the corresponding parts –
+Prof. Dr. Robin Gubela | Business Applications
+
+--- PAGE 29 ---
+Go to slido.com
+and join with # 1899
+30
+Quiz time!
+Prof. Dr. Robin Gubela | Business Applications
+
+--- PAGE 30 ---
+www.htw-berlin.de
+Thank you for your attention
+Prof. Dr. Robin Gubela
+Business Applications and Business Processes
+Department 4 – Information Systems
+robin.gubela@htw-berlin.de
+
+
+--- PAGE 31 ---
+www.htw-berlin.dewww.htw-berlin.de
+
